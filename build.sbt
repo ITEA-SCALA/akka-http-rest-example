@@ -8,6 +8,6 @@ lazy val commonSettings = Defaults.coreDefaultSettings ++ Formatting.formatSetti
 lazy val root = (project in file("."))
   .settings(commonSettings)
   .settings(
-    name := "example",
+    name := "Akka HTTP rest-example",
     libraryDependencies ++= Dependencies.core ++ Dependencies.test
   )
