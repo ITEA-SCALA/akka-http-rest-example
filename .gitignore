@@ -2,7 +2,7 @@
 .idea
 target
 .idea_modules
-
+null
 
 # scala, sbt
 logs
