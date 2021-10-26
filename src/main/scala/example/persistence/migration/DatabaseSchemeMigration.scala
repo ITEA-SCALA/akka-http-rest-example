@@ -10,6 +10,7 @@ object DatabaseSchemeMigration {
   def migrate(onFailure: () ⇒ Unit): Unit = {
     val flyway = new Flyway()
     flyway.setDataSource(DatabaseConnection.dataSource)
+    flyway.setBaselineOnMigrate(true)
 
     Try(flyway.migrate()) match {
       case Success(c) ⇒

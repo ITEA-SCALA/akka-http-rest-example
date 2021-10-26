@@ -55,3 +55,14 @@ ALTER TABLE ONLY accounts  ADD CONSTRAINT pk_accounts  PRIMARY KEY (id);
 ALTER TABLE ONLY accounts ADD CONSTRAINT uk_accounts__nick_name  UNIQUE (nick_name);
 ALTER TABLE ONLY accounts ADD CONSTRAINT uk_accounts__email      UNIQUE (email);
 ```
+
+# Migration failure: Found non-empty schema(s) "public" without schema history table! Use baseline() or set baselineOnMigrate to true to initialize the schema history table.
+
+`Ошибка миграции: обнаружены непустые схемы "общедоступные" без таблицы истории схем! Используйте baseline () или установите для baselineOnMigrate значение true, чтобы инициализировать таблицу истории схемы.`
+
+![Screenshot-02](screenshot-02.png)
+
+![Screenshot-03](screenshot-03.png)
+
+![Screenshot-01](screenshot-01.png)
+
