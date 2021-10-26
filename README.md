@@ -66,3 +66,9 @@ ALTER TABLE ONLY accounts ADD CONSTRAINT uk_accounts__email      UNIQUE (email);
 
 ![Screenshot-01](screenshot-01.png)
 
+`GET` http://localhost:8967/api/v1/health
+```json
+{
+  "status": 200
+}
+```
