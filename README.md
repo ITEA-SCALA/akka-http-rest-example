@@ -72,3 +72,22 @@ ALTER TABLE ONLY accounts ADD CONSTRAINT uk_accounts__email      UNIQUE (email);
   "status": 200
 }
 ```
+
+![Screenshot-04](screenshot-04.png)
+
+
+`POST` http://localhost:8967/api/v1/accounts
+```json
+{
+  "nick_name": "user123",
+  "email": "user123@gmail.com",
+  "password": "asdf1234",
+  "passwordRepeat": "asdf1234"
+}
+```
+
+```text
+The request content was malformed:
+Object is missing required member 'password_repeat'
+```
+
