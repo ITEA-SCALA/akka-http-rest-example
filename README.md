@@ -91,3 +91,15 @@ The request content was malformed:
 Object is missing required member 'password_repeat'
 ```
 
+![Screenshot-05](screenshot-05.png)
+
+
+`POST` http://localhost:8967/api/v1/accounts
+```json
+{
+  "nick_name": "user123",
+  "email": "user123@gmail.com",
+  "password": "asdf1234",
+  "password_repeat": "asdf1234"
+}
+```
