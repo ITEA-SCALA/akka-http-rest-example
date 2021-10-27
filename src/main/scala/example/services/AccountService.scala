@@ -23,7 +23,7 @@ class AccountServiceImpl(implicit ex: ExecutionContextExecutor) extends AccountS
 
   def register(dto: RegisterDto): AsyncServiceResult[Unit] = {
     AccountRepository.findByNickOrEmail(dto.nickName, dto.email)
-      .onValid(RegisterValidator.checkUnique(dto)) { validDto ⇒
+      .onValid(RegisterValidator.checkUnique(dto)) { validDto =>
         val account = AccountConverter.toEntity(validDto)
         AccountRepository.save(account)
           .asAction

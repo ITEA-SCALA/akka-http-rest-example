@@ -19,8 +19,8 @@ class AccountApiRouter(accountService: AccountService) {
   // format: ON
 
   private def registerRouter: Route =
-    validPostJson(as[RegisterDto], RegisterValidator.validate) { dto ⇒
-      onSuccess(accountService.register(dto)) { result ⇒
+    validPostJson(as[RegisterDto], RegisterValidator.validate) { dto =>
+      onSuccess(accountService.register(dto)) { result =>
         complete(ApiResponse.convert(result))
       }
     }
