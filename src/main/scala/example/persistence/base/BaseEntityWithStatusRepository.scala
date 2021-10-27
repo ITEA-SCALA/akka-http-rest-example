@@ -9,8 +9,7 @@ import example.persistence.DatabaseConnection.api._
 
 import scala.concurrent.Future
 
-class BaseEntityWithStatusRepository[E <: BaseEntityWithStatus, T <: BaseTableWithStatus[E]](entities: TableQuery[T])
-  extends BaseEntityRepository[E, T](entities) {
+class BaseEntityWithStatusRepository[E <: BaseEntityWithStatus, T <: BaseTableWithStatus[E]](entities: TableQuery[T]) extends BaseEntityRepository[E, T](entities) {
 
   // actions
   def existsByStatusAction(id: Long, status: EntityStatus): Rep[Boolean] =
@@ -85,7 +84,8 @@ class BaseEntityWithStatusRepository[E <: BaseEntityWithStatus, T <: BaseTableWi
   def findAll(status: EntityStatus): Future[Seq[E]] =
     DB.run(entities.filter(_.status === status).result)
 
-  def findAllActive: Future[Seq[E]] = findAll(EntityStatus.Active)
+  def findAllActive: Future[Seq[E]] =
+    findAll(EntityStatus.Active)
 
   def findAll(startFromId: Option[Long], desc: Boolean, limit: Int, status: EntityStatus): Future[Seq[E]] =
     DB.run(pageableFilter(startFromId, desc, limit, status).result)

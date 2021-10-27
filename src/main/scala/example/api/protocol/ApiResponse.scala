@@ -25,13 +25,9 @@ object ApiResponse {
         (error.code, ApiResponseError(error.code, ErrorDto(Some(error.message), error.details)).toJson)
     }
 
-  def convert[T](result: ServiceResult[T]): Response =
-    result match {
-      case Right(_) ⇒
-        OK
-
-      case Left(error) ⇒
-        (error.code, ApiResponseError(error.code, ErrorDto(Some(error.message), error.details)).toJson)
+  def convert[T](result: ServiceResult[T]): Response = result match {
+      case Right(_) ⇒ OK
+      case Left(error) ⇒ (error.code, ApiResponseError(error.code, ErrorDto(Some(error.message), error.details)).toJson)
     }
 
   def validationError(errors: ValidationErrors): Response =

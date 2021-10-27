@@ -23,7 +23,7 @@ class BaseEntityRepository[E <: BaseEntity, T <: BaseTable[E]](val entities: Tab
     entities.filter(_.id === id).exists
 
   def saveAction(entity: E): FixedSqlAction[E, NoStream, Write] =
-    entities returning entities += entity
+    entities.returning(entities) += entity
 
   def saveAllAction(entitiesList: Seq[E]): FixedSqlAction[Seq[E], NoStream, Write] =
     entities returning entities ++= entitiesList
@@ -78,7 +78,7 @@ class BaseEntityRepository[E <: BaseEntity, T <: BaseTable[E]](val entities: Tab
     DB.run(existsAction(id).result)
 
   def save(entity: E): Future[E] =
-    DB.run(saveAction(entity).transactionally)
+    DB.run( saveAction(entity).transactionally ) // заворачиваем композитное действие в транзакцию и делаем из него футуру (любое действие можно выполнить в рамках транзакции)
 
   def saveAll(entities: Seq[E]): Future[Seq[E]] =
     DB.run(saveAllAction(entities).transactionally)

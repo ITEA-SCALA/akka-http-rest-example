@@ -44,7 +44,7 @@ class AccountTable(tag: Tag) extends BaseTableWithStatus[Account](tag, "accounts
   // format: OFF
   def role           = column[UserRole]("user_role")
   def nickName       = column[String]("nick_name")
-  def email          = column[String]("nick_name")
+  def email          = column[String]("email")
   def emailConfirmed = column[Boolean]("email_confirmed")
   def password       = column[String]("password")
   // format: ON

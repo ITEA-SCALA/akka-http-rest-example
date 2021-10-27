@@ -103,3 +103,16 @@ Object is missing required member 'password_repeat'
   "password_repeat": "asdf1234"
 }
 ```
+```json
+{
+    "status": 200
+}
+```
+
+![Screenshot-06](screenshot-06.png)
+
+![Screenshot-07](screenshot-07.png)
+
+![Screenshot-08](screenshot-08.png)
+
+![Screenshot-09](screenshot-09.png)
