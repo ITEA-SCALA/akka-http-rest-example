@@ -21,6 +21,7 @@ For more details about project structure, logic and libs see [STRUCTURE.md](./do
 
 For pipeline example see [PIPELINE.md](./docs/PIPELINE.md)
 
+[![Scala, SQL и NoSQL: старый друг лучше новых двух?](https://img.youtube.com/vi/oqI_g2xm8uw/0.jpg)](https://www.youtube.com/watch?v=oqI_g2xm8uw)
 
 ```sql
 --
